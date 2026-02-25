@@ -7,4 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: '/portfolio/'  // <-- Add this line for GitHub Pages
 })

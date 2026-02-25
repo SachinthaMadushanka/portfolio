@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+
 function Home() {
   const cardRef = useRef(null);
   const heroRef = useRef(null);
@@ -59,7 +60,10 @@ function Home() {
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse [animation-delay:1000ms]"></div>
+        <div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl"></div>
         
         {/* Grid overlay */}
@@ -99,7 +103,10 @@ function Home() {
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent bg-[length:200%_200%] animate-[gradient_3s_ease_infinite]">
                 {displayName}
               </span>
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full scale-x-0 animate-[slideIn_1s_ease_forwards] [animation-delay:2s]"></span>
+              <span
+                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full scale-x-0 animate-[slideIn_1s_ease_forwards]"
+                style={{ animationDelay: "2s" }}
+              ></span>
             </span>
           </h1>
 
@@ -164,7 +171,7 @@ function Home() {
           </div>
         </div>
 
-        {/* RIGHT SIDE: Image + Tech Card */}
+        {/* RIGHT SIDE */}
         <div 
           id="hero-right"
           data-animate
@@ -172,16 +179,15 @@ function Home() {
             isVisible["hero-right"] ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
           }`}
         >
-          
-          {/* Profile Image with Glow Effect */}
+          {/* Profile Image */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity animate-pulse"></div>
             <div className="relative w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 p-1">
               <img
-                src="/images/images.jpg"
-                alt="Sachintha Madushanka"
-                className="w-full h-full rounded-full object-cover"
-              />
+  src="/images/images.jpg" // <-- use leading slash for public folder
+  alt="Sachintha Madushanka"
+  className="w-full h-full rounded-full object-cover"
+/>
             </div>
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-slate-800 px-4 py-1 rounded-full text-sm border border-blue-400/30 whitespace-nowrap">
               🚀 Open to Work
@@ -189,21 +195,15 @@ function Home() {
           </div>
 
           {/* Tech Card */}
-          <div
-            ref={cardRef}
-            className="relative group"
-            style={{ perspective: '1000px' }}
-          >
+          <div ref={cardRef} className="relative group" style={{ perspective: '1000px' }}>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity"></div>
             <div className="relative bg-slate-800/60 backdrop-blur-xl border border-slate-700 rounded-2xl p-8 w-80 shadow-2xl transition-all duration-500 hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:shadow-blue-500/20">
-              
-              {/* Card Header */}
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-blue-400">⚡ Tech Stack</h3>
                 <div className="flex gap-1">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                  <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse [animation-delay:150ms]"></span>
-                  <span className="w-2 h-2 bg-red-400 rounded-full animate-pulse [animation-delay:300ms]"></span>
+                  <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></span>
+                  <span className="w-2 h-2 bg-red-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></span>
                 </div>
               </div>
 
@@ -231,8 +231,6 @@ function Home() {
       {/* ABOUT SECTION */}
       <section className="py-20 px-10 lg:px-20 bg-slate-900/50 backdrop-blur-sm relative">
         <div className="max-w-6xl mx-auto">
-          
-          {/* Section Header */}
           <div className="text-center mb-12">
             <span className="text-blue-400 text-sm font-medium tracking-wider">GET TO KNOW ME</span>
             <h2 className="text-4xl font-bold mt-2">
@@ -309,7 +307,7 @@ function Home() {
         </svg>
       </button>
 
-      {/* Add custom keyframes in style tag */}
+      {/* Custom Keyframes */}
       <style jsx>{`
         @keyframes gradient {
           0%, 100% { background-position: 0% 50%; }
@@ -328,95 +326,62 @@ function Home() {
   );
 }
 
-// Enhanced TechItem component
+// TechItem Component
 function TechItem({ name, level, icon }) {
   const [isHovered, setIsHovered] = useState(false);
-  
   return (
-    <div 
-      className="group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="group" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <div className="flex justify-between text-sm mb-1">
-        <span className="flex items-center gap-2">
-          <span className="text-lg">{icon}</span>
-          {name}
-        </span>
+        <span className="flex items-center gap-2"><span className="text-lg">{icon}</span>{name}</span>
         <span className="text-gray-400 font-mono">{level}</span>
       </div>
       <div className="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
-        <div
-          className={`h-2 rounded-full transition-all duration-500 ${
-            isHovered ? "bg-gradient-to-r from-blue-400 to-cyan-400" : "bg-blue-500"
-          }`}
-          style={{ 
-            width: level,
-            transform: isHovered ? "scaleX(1.05)" : "scaleX(1)",
-            transformOrigin: "left",
-          }}
+        <div 
+          className={`h-2 bg-gradient-to-r from-blue-400 to-cyan-400 transition-all duration-500`}
+          style={{ width: level }}
         ></div>
       </div>
     </div>
   );
 }
 
-// Enhanced Feature component
+// Feature Component
 function Feature({ title, icon }) {
-  const [isHovered, setIsHovered] = useState(false);
-  
   return (
-    <div 
-      className="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-blue-400 transition-all duration-300 cursor-default group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="flex flex-col items-center text-center gap-2">
-        <span className={`text-2xl transition-transform duration-300 ${isHovered ? "scale-110" : ""}`}>
-          {icon}
-        </span>
-        <h4 className="font-semibold text-sm">{title}</h4>
-      </div>
-      {isHovered && (
-        <div className="mt-2 text-xs text-blue-400 text-center animate-[fadeIn_0.3s_ease_forwards]">
-          ✓ Experienced
-        </div>
-      )}
+    <div className="flex items-center gap-2 bg-slate-800/50 p-3 rounded-lg border border-slate-700 hover:border-blue-400 transition-all duration-300">
+      <span className="text-xl">{icon}</span>
+      <span className="text-gray-300 font-medium">{title}</span>
     </div>
   );
 }
 
-// Enhanced StatCard component
+// StatCard Component
 function StatCard({ value, label, icon }) {
   const [count, setCount] = useState(0);
-  
+
   useEffect(() => {
-    const numericValue = parseInt(value);
-    if (!isNaN(numericValue)) {
-      let start = 0;
-      const increment = numericValue / 50;
-      const timer = setInterval(() => {
-        start += increment;
-        if (start > numericValue) {
-          setCount(numericValue);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 20);
-      return () => clearInterval(timer);
-    }
+    let start = 0;
+    const end = parseInt(value) || 0;
+    const duration = 1000;
+    const increment = end / (duration / 20);
+
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        start = end;
+        clearInterval(counter);
+      }
+      setCount(Math.floor(start));
+    }, 20);
+
+    return () => clearInterval(counter);
   }, [value]);
 
   return (
-    <div className="group" style={{ perspective: '1000px' }}>
-      <div className="bg-slate-800 p-6 rounded-xl text-center border border-slate-700 hover:border-blue-400 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 cursor-default">
-        <div className="text-3xl mb-2 group-hover:animate-bounce">{icon}</div>
-        <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-          {isNaN(parseInt(value)) ? value : count + (value.includes('+') ? '+' : '')}
-        </div>
-        <div className="text-gray-400 text-sm mt-1">{label}</div>
-      </div>
+    <div className="bg-slate-800/60 backdrop-blur-xl border border-slate-700 rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg hover:shadow-blue-500/25 transition-all duration-500">
+      <div className="text-2xl mb-2">{icon}</div>
+      <div className="text-3xl font-bold text-blue-400">{count}{value.includes('+') && '+'}</div>
+      <div className="text-gray-400 text-sm mt-1">{label}</div>
     </div>
   );
 }
