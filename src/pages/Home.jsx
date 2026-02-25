@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import MyPhoto from '../assets/my.jpg';
+import { Link } from 'react-router-dom';
 
 
 function Home() {
@@ -40,7 +42,7 @@ function Home() {
   // Typing effect for the name
   const [displayName, setDisplayName] = useState("");
   const fullName = "Sachintha Madushanka";
-  
+
   useEffect(() => {
     let i = 0;
     const typing = setInterval(() => {
@@ -56,7 +58,7 @@ function Home() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-      
+
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -65,9 +67,9 @@ function Home() {
           style={{ animationDelay: "1s" }}
         ></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl"></div>
-        
+
         {/* Grid overlay */}
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(59,130,246,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")`,
@@ -76,7 +78,7 @@ function Home() {
       </div>
 
       {/* HERO SECTION */}
-      <section 
+      <section
         ref={heroRef}
         className="min-h-screen flex flex-col lg:flex-row items-center justify-between px-10 lg:px-20 py-20 relative"
         style={{
@@ -85,12 +87,11 @@ function Home() {
         }}
       >
         {/* LEFT SIDE */}
-        <div 
+        <div
           id="hero-left"
           data-animate
-          className={`lg:w-1/2 space-y-6 transition-all duration-1000 ${
-            isVisible["hero-left"] ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
-          }`}
+          className={`lg:w-1/2 space-y-6 transition-all duration-1000 ${isVisible["hero-left"] ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
+            }`}
         >
           <span className="inline-flex items-center text-blue-400 font-medium">
             <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-ping"></span>
@@ -124,26 +125,44 @@ function Home() {
           </p>
 
           <div className="flex gap-4 pt-4 relative">
-            <a
-              href="/projects"
-              className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 overflow-hidden"
-            >
-              <span className="relative z-10 flex items-center">
-                View Projects 
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
-              <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-            </a>
-
-            <a
-              href="/contact"
-              className="px-8 py-4 rounded-xl border-2 border-gray-500 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 relative group overflow-hidden"
-            >
-              <span className="relative z-10">Contact Me</span>
-              <div className="absolute inset-0 bg-blue-400/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-            </a>
+            <div className="flex gap-4 pt-4 relative">
+              <Link
+                to="/projects"
+                className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center">
+                  View Projects
+                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300">
+                </div>
+              </Link>
+            </div>
+            <div className="flex gap-4 pt-4 relative">
+              <Link
+                to="/contact"
+                className="group relative px-8 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 
+               hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg 
+               hover:shadow-blue-500/25 overflow-hidden flex items-center justify-center"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  Contact Me
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-blue-400/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              </Link>
+            </div>
           </div>
 
           {/* Social Links */}
@@ -172,24 +191,23 @@ function Home() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div 
+        <div
           id="hero-right"
           data-animate
-          className={`lg:w-1/2 mt-10 lg:mt-0 flex flex-col items-center lg:items-end gap-20 transition-all duration-1000 delay-300 ${
-            isVisible["hero-right"] ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
-          }`}
+          className={`lg:w-1/2 mt-10 lg:mt-0 flex flex-col items-center lg:items-end gap-20 transition-all duration-1000 delay-300 ${isVisible["hero-right"] ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
+            }`}
         >
           {/* Profile Image */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity animate-pulse"></div>
-            <div className="relative w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 p-1">
+            <div className="relative w-48 h-48 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 p-1">
               <img
-  src="/images/images.jpg" // <-- use leading slash for public folder
-  alt="Sachintha Madushanka"
-  className="w-full h-full rounded-full object-cover"
-/>
+                src={MyPhoto}
+                alt="Sachintha Madushanka"
+                className="w-full h-full rounded-full object-cover object-top"
+              />
             </div>
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-slate-800 px-4 py-1 rounded-full text-sm border border-blue-400/30 whitespace-nowrap">
+            <div className="absolute -bottom left-1/2 -translate-x-1/2 bg-slate-800 px-4 py-1 rounded-full text-sm border border-blue-400/30 whitespace-nowrap">
               🚀 Open to Work
             </div>
           </div>
@@ -208,19 +226,29 @@ function Home() {
               </div>
 
               <div className="space-y-4">
+                <TechItem name="PHP" level="90%" icon="🐘" />
                 <TechItem name="Java" level="90%" icon="☕" />
                 <TechItem name="React" level="75%" icon="⚛️" />
                 <TechItem name="JavaScript" level="85%" icon="📜" />
                 <TechItem name="MySQL" level="70%" icon="🗄️" />
                 <TechItem name="HTML/CSS" level="95%" icon="🎨" />
+
               </div>
 
               {/* Current Focus */}
               <div className="mt-6 pt-4 border-t border-slate-700">
-                <p className="text-xs text-gray-400 mb-2">CURRENT FOCUS</p>
+                <p className="text-xs text-gray-400 mb-2" style={{ fontSize: '12px' }}>CURRENT FOCUS</p>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm">Learning Next.js & TypeScript</span>
+                  <span className="text-sm">Learning Next.js & Word Press</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+                  <span className="text-sm">Learning React & Tailwind CSS</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                  <span className="text-sm">Working as Fullstack Laravel Developer Intern</span>
                 </div>
               </div>
             </div>
@@ -243,12 +271,11 @@ function Home() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column */}
-            <div 
+            <div
               id="about-left"
               data-animate
-              className={`space-y-6 transition-all duration-1000 ${
-                isVisible["about-left"] ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
-              }`}
+              className={`space-y-6 transition-all duration-1000 ${isVisible["about-left"] ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
+                }`}
             >
               <p className="text-gray-400 leading-relaxed">
                 Passionate IT student specialized in Java, Web Technologies
@@ -273,20 +300,19 @@ function Home() {
                   </div>
                   <div className="relative">
                     <div className="absolute -left-[25px] w-4 h-4 bg-cyan-400 rounded-full border-2 border-slate-900"></div>
-                    <p className="font-medium">GCE Advanced Level - Physical Science</p>
-                    <p className="text-sm text-gray-400">2020 - 2022</p>
+                    <p className="font-medium">Diploma In Information Technology - SITC </p>
+                    <p className="text-sm text-gray-400">2022 - 2023</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Column */}
-            <div 
+            <div
               id="about-right"
               data-animate
-              className={`grid grid-cols-2 gap-6 transition-all duration-1000 delay-300 ${
-                isVisible["about-right"] ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
-              }`}
+              className={`grid grid-cols-2 gap-6 transition-all duration-1000 delay-300 ${isVisible["about-right"] ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
+                }`}
             >
               <StatCard value="10+" label="Projects Completed" icon="🚀" />
               <StatCard value="5+" label="Technologies" icon="💻" />
@@ -298,7 +324,7 @@ function Home() {
       </section>
 
       {/* Floating Action Button */}
-      <button 
+      <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full shadow-lg hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center group z-50 animate-bounce"
       >
@@ -336,7 +362,7 @@ function TechItem({ name, level, icon }) {
         <span className="text-gray-400 font-mono">{level}</span>
       </div>
       <div className="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
-        <div 
+        <div
           className={`h-2 bg-gradient-to-r from-blue-400 to-cyan-400 transition-all duration-500`}
           style={{ width: level }}
         ></div>

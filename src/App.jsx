@@ -8,7 +8,7 @@ function App() {
     <Router>
       {/* Navbar */}
       <nav className="flex justify-between items-center px-8 py-4 bg-gray-900 text-white shadow-md sticky top-0 z-50">
-        <h2 className="text-2xl font-bold tracking-wide">dev</h2>
+        <h2 className="text-2xl font-bold tracking-wide"></h2>
         <div className="space-x-6">
           <Link to="/" className="hover:text-blue-400 transition-colors duration-300 font-medium">
             Home
