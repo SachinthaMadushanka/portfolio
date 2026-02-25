@@ -227,9 +227,9 @@ function Home() {
 
               <div className="space-y-4">
                 <TechItem name="PHP" level="90%" icon="🐘" />
-                <TechItem name="Java" level="90%" icon="☕" />
+                <TechItem name="Java" level="60%" icon="☕" />
                 <TechItem name="React" level="75%" icon="⚛️" />
-                <TechItem name="JavaScript" level="85%" icon="📜" />
+                <TechItem name="JavaScript" level="80%" icon="📜" />
                 <TechItem name="MySQL" level="70%" icon="🗄️" />
                 <TechItem name="HTML/CSS" level="95%" icon="🎨" />
 
