@@ -137,6 +137,15 @@ function Contact() {
       color: 'from-purple-500 to-pink-500',
       bgColor: 'bg-purple-500/10',
       hoverColor: 'hover:bg-purple-500/20'
+    },
+    {
+      name: 'WhatsApp',
+      icon: '📱',
+      value: 'Sachintha Madushanka',
+      link: 'https://wa.me/94716031582',
+      color: 'from-green-500 to-emerald-500',
+      bgColor: 'bg-green-500/10',
+      hoverColor: 'hover:bg-green-500/20'
     }
   ];
 
